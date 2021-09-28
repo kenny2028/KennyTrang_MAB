@@ -77,9 +77,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
             personTotal = total / Float(numberOfPeople)
         } else {
             let alert = UIAlertController(title: "Warning", message: "Number of people has to be greater than 0", preferredStyle: .alert)
-            let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertAction.Style.cancel)
+            let cancelAction = UIAlertAction(title: "Cancel", style:UIAlertAction.Style.cancel, handler: nil)
             alert.addAction(cancelAction)
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default)
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: {action in
+                self.personLabel.text = "1 Person"
+                self.stepper.value = 1
+                self.updateTipTotals()
+            })
             alert.addAction(okAction)
             
             self.present(alert, animated: true, completion: nil)
