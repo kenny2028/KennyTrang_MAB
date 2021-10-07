@@ -135,9 +135,12 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
 //       No Errors, Entrys Proceed Here
 //        Add Review to the reviewlist array struct
         reviews.append(reviewlist(titleName: titleField.text!, review: descriptionField.text!, ratingNum: calcSlider(slidervalue: slider.value)))
-        print("New review Added! p1 ")
+        reviewImages.append(newCellImage!)
+        
         numReview += 1
         print(numReview)
+        
+        
         
 //      Show Image again and remove image and empty text fields
         startingImage.isHidden = false
@@ -146,7 +149,6 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         slider.value = 0
         imageView.image = nil
         ratingLabel.text = "Rating - 0"
-        print("New review Added! p2")
         tableView.reloadData()
        }
         
@@ -168,12 +170,12 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
 //Table View -------------------------------------
 //    Adapted from https://www.youtube.com/watch?v=WK5vrOD1zCQ
     @IBOutlet var tableView:UITableView!
-    var titles = [String]()
-    let test = ["String1", "String2"]
-    
+  
     // Creating an class object for the reviewer -------------------
     var reviews : [reviewlist] = [];
     var numReview = 0;
+    var newCellImage :UIImage?
+    var reviewImages : [UIImage] = [];
 //    var newReview = reviewlist(titleName: "EXAMPLE TITLE", review: "Please start by adding a review above!", ratingNum: "10")
     
 
@@ -209,8 +211,9 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
 //            cell.cellImage.backgroundColor = .red
 //            cell.descriptionLabel.text = reviews[i].reviewDescription
 //        }
-        cell.titleLabel.text = reviews[indexPath.row].title! + " - " + reviews[indexPath.row].rating!
-        cell.cellImage.backgroundColor = .red
+        cell.titleLabel.text = reviews[indexPath.row].title! + " - " + reviews[indexPath.row].rating! + "★"
+//        cell.cellImage.backgroundColor = .red
+        cell.cellImage.image = reviewImages[indexPath.row]
         cell.descriptionLabel.text = reviews[indexPath.row].reviewDescription
         self.tableView.rowHeight = 130;
         return cell
@@ -235,6 +238,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         
         if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
             imageView.image = image
+            newCellImage = image
             startingImage.isHidden = true
         }
     
@@ -250,17 +254,7 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     }
 //------------------------------------------------
     
-    
-//Custom Cell Functions -------------------------
-    
-    
-    
-    
-
-    
-// ---------------------------------------------
-    
-    
+ 
     
     
     

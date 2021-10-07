@@ -67,7 +67,6 @@
                             </label>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="P4b-hN-vIG" firstAttribute="firstBaseline" secondItem="S1b-By-FQo" secondAttribute="baseline" constant="22.5" symbolType="layoutAnchor" id="DAi-2l-Voh"/>
                             <constraint firstItem="S1b-By-FQo" firstAttribute="leading" secondItem="7Cx-oQ-QLK" secondAttribute="leading" id="iSM-7e-1kf"/>
                             <constraint firstAttribute="trailing" secondItem="S1b-By-FQo" secondAttribute="trailing" id="ypb-Ce-M5T"/>
                         </constraints>
