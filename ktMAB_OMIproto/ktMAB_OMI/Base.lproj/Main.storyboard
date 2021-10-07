@@ -180,7 +180,15 @@
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GuE-hj-kSg">
                                                 <rect key="frame" x="10" y="10" width="368" height="673"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.21807399390000001" green="0.2535080314" blue="0.3842781186" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="tintColor" red="0.21807399390000001" green="0.2535080314" blue="0.3842781186" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="separatorColor" red="0.25610402230000001" green="0.3196646273" blue="0.49407172199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="sectionIndexBackgroundColor" red="0.21807399390000001" green="0.2535080314" blue="0.3842781186" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="9"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.27247291800000001" green="0.31982707980000002" blue="0.48230910300000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E4BE29CB270CB62A001C10DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE29C9270CB62A001C10DB /* TableViewCell.swift */; };
 		E4BE29CC270CB62A001C10DB /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4BE29CA270CB62A001C10DB /* TableViewCell.xib */; };
+		E4C6A02D270E615A0021AC7F /* reviewclass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C6A02C270E615A0021AC7F /* reviewclass.swift */; };
 		E4CA8C1E2707BEC300FD33FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA8C1D2707BEC300FD33FB /* AppDelegate.swift */; };
 		E4CA8C202707BEC300FD33FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA8C1F2707BEC300FD33FB /* SceneDelegate.swift */; };
 		E4CA8C222707BEC300FD33FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CA8C212707BEC300FD33FB /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		E4BE29C9270CB62A001C10DB /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		E4BE29CA270CB62A001C10DB /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		E4C6A02C270E615A0021AC7F /* reviewclass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reviewclass.swift; sourceTree = "<group>"; };
 		E4CA8C1A2707BEC300FD33FB /* ktMAB_OMI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ktMAB_OMI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4CA8C1D2707BEC300FD33FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4CA8C1F2707BEC300FD33FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				E4CA8C2B2707BEC600FD33FB /* Info.plist */,
 				E4BE29C9270CB62A001C10DB /* TableViewCell.swift */,
 				E4BE29CA270CB62A001C10DB /* TableViewCell.xib */,
+				E4C6A02C270E615A0021AC7F /* reviewclass.swift */,
 			);
 			path = ktMAB_OMI;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4CA8C222707BEC300FD33FB /* ViewController.swift in Sources */,
+				E4C6A02D270E615A0021AC7F /* reviewclass.swift in Sources */,
 				E4BE29CB270CB62A001C10DB /* TableViewCell.swift in Sources */,
 				E4CA8C1E2707BEC300FD33FB /* AppDelegate.swift in Sources */,
 				E4CA8C202707BEC300FD33FB /* SceneDelegate.swift in Sources */,

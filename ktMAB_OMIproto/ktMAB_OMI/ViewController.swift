@@ -9,8 +9,11 @@ import UIKit
 
 
 
-class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource {
-    
+
+
+class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate,UITableViewDelegate,UITableViewDataSource{
+
+
     
     
 //Text Field Variables ----------------
@@ -40,6 +43,8 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         // Do any additional setup after loading the view.
+
+
     }
     
     
@@ -50,18 +55,29 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     
     @IBAction func ratingSlider(_ sender: UISlider) {
 //        if value changes update text label to current value
-        var sliderval : Float
-        var finalString : String
-        sliderval = round(slider.value*10)/10
-        if sliderval.truncatingRemainder(dividingBy: Float(floor(Double(sliderval)))) == 0 {
-            finalString = String(format: "%.0f", sliderval)
+          var finalString : String
+//
+        
+        finalString = calcSlider(slidervalue: slider.value)
+        
+        
+        ratingLabel.text = "Rating - " + finalString
+    }
+    
+    
+//    Calculate Slider val and return string
+    func calcSlider(slidervalue: Float) -> String {
+        var sliderval : Float!
+        var finalString : String!
+        sliderval = round(slidervalue*10)/10
+        if sliderval!.truncatingRemainder(dividingBy: Float(floor(Double(sliderval!)))) == 0 {
+            finalString = String(format: "%.0f", sliderval!)
         } else if sliderval == 0 {
             finalString = "0"
         } else {
             finalString = String(sliderval)
         }
-        
-        ratingLabel.text = "Rating - " + finalString
+        return finalString!
     }
     
 // -----------------------------------------------
@@ -117,6 +133,21 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
        
        else{
 //       No Errors, Entrys Proceed Here
+//        Add Review to the reviewlist array struct
+        reviews.append(reviewlist(titleName: titleField.text!, review: descriptionField.text!, ratingNum: calcSlider(slidervalue: slider.value)))
+        print("New review Added! p1 ")
+        numReview += 1
+        print(numReview)
+        
+//      Show Image again and remove image and empty text fields
+        startingImage.isHidden = false
+        titleField.text = ""
+        descriptionField.text = ""
+        slider.value = 0
+        imageView.image = nil
+        ratingLabel.text = "Rating - 0"
+        print("New review Added! p2")
+        tableView.reloadData()
        }
         
         
@@ -140,10 +171,31 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     var titles = [String]()
     let test = ["String1", "String2"]
     
+    // Creating an class object for the reviewer -------------------
+    var reviews : [reviewlist] = [];
+    var numReview = 0;
+//    var newReview = reviewlist(titleName: "EXAMPLE TITLE", review: "Please start by adding a review above!", ratingNum: "10")
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //--------------------------------------------------------------
+    
 //Table View Functions --------------------------
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        Returns the amount of entrys within
-        return test.count
+//        reviews.append(newReview)
+        return numReview
     }
     
     
@@ -151,9 +203,15 @@ class ViewController: UIViewController,UITextFieldDelegate,UIImagePickerControll
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        grab cell property of first default cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell", for: indexPath) as! TableViewCell
-        cell.titleLabel.text = test[indexPath.row]
+//        for i in 0...numReview-1 {
+////            cell.titleLabel.text = test[indexPath.row]
+//            cell.titleLabel.text = reviews[i].title! + " - " + reviews[i].rating!
+//            cell.cellImage.backgroundColor = .red
+//            cell.descriptionLabel.text = reviews[i].reviewDescription
+//        }
+        cell.titleLabel.text = reviews[indexPath.row].title! + " - " + reviews[indexPath.row].rating!
         cell.cellImage.backgroundColor = .red
-        cell.descriptionLabel.text = "Lorem ipsum dolor sit amet, te voluptua disputationi comprehensam nam, sit et eligendi quaestio liberavisse, at odio solum nominati his. Et dolor principes adolescens vis, mel ex mutat meliore. Has cu option vivendum forensibus, eam lorem molestie ex, in ludus meliore ius. Eum ea scribentur delicatissimi, labore propriae no ius. Ea malis facer conceptam pro, corpora democritum at quo, sed an amet omnis diceret. Movet dictas repudiare eu duo, qui tota saepe saperet ea, no eius salutatus assueverit vix. Vel ei gubergren hendrerit maiestatis, prompta omnesque insolens eu qui."
+        cell.descriptionLabel.text = reviews[indexPath.row].reviewDescription
         self.tableView.rowHeight = 130;
         return cell
     }
