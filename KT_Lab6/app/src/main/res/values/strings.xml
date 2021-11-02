@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KT_Lab6</string>
+    <string name="typeHint">Type a name</string>
+    <string name="buttonText">Click Me!</string>
+</resources>
