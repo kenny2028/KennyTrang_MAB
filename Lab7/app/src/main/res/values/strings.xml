@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Lab7</string>
+    <string name="choose">Please choose the type of animal</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="wearselect">Please Check all the items you want on your pet</string>
+    <string name="hat">Hat</string>
+    <string name="shoes">Shoes</string>
+
+    <string name="makeLabel">Make Pet!</string>
+
+    <string-array name="icon">
+        <item>Winter</item>
+        <item>Summer</item>
+    </string-array>
+
+    <string name="light">Add Lights</string>
+</resources>
