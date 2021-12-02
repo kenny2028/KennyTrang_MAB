@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Lab8</string>
+    <string name="animalq">What animal do you like?</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="feedback">Feedback</string>
+
+    <string name="Feedback"></string>
+
+    <string-array name="Animal">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Fish</item>
+    </string-array>
+
+    <string name="button">Confirm</string>
+    <string name="hint">Please provide comments for your pet</string>
+</resources>
