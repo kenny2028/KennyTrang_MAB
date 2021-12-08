@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Plankable</string>
+    <string name="timerbegin">0:00</string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name ="score">High Score for This Time:</string>
+    <string name ="beginningscore">0</string>
+    <string name ="timerlabel">Show Timer In-Game(ON)</string>
+    <string name ="timerlabel2">Show Timer In-Game(OFF)</string>
+    <string name ="begin">Begin</string>
+
+    <array name="slidervalues">
+        <item>0</item>
+        <item>30</item>
+        <item>60</item>
+        <item>90</item>
+        <item>120</item>
+        <item>150</item>
+        <item>180</item>
+        <item>210</item>
+        <item>240</item>
+        <item>270</item>
+        <item>300</item>
+        <item>330</item>
+        <item>360</item>
+        <item>390</item>
+        <item>420</item>
+        <item>450</item>
+        <item>480</item>
+        <item>510</item>
+        <item>540</item>
+        <item>570</item>
+        <item>600</item>
+    </array>
+
+</resources>
