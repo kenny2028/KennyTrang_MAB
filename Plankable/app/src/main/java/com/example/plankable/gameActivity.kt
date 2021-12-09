@@ -173,6 +173,9 @@ class gameActivity : AppCompatActivity() {
                 yellowbox.setImageResource(R.drawable.yellowbox2)
             }
             var mediaPlayer = MediaPlayer.create(this, R.raw.beep)
+            mediaPlayer.setOnSeekCompleteListener {
+                it.release()
+            }
             mediaPlayer.start()
 
             Handler().postDelayed(1500) {
@@ -728,6 +731,9 @@ fun secondconvertTEXT(seconds: Int):String {
 
 fun buttonsoundpress(view: View) {
     var mediaPlayer1 = MediaPlayer.create(this, R.raw.beep)
+    mediaPlayer1.setOnSeekCompleteListener {
+        it.release()
+    }
     mediaPlayer1.start()
 }
 
