@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:stepSize="30"
+        android:valueFrom="0.0"
+        android:valueTo="600.0"
+        app:labelBehavior="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:thumbColor="@color/white"
+        app:trackColor="@color/primaryColor"
+        app:values="@array/slidervalues"
+        tools:ignore="SpeakableTextPresentCheck" />
+    <!--    How to install and use sliders: https://www.youtube.com/watch?v=IibybM4oM1w&t-->
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="52dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="175dp"
+        android:layout_marginTop="272dp"
+        android:layout_marginEnd="175dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/plankablelogo" />
+
+    <TextView
+        android:id="@+id/timerlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:fontFamily="@font/spartanlight"
+        android:text="@string/timerbegin"
+        android:textSize="150sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="260dp"
+        android:fontFamily="@font/spartanmedium"
+        android:text="@string/minutes"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerlabel" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="316dp"
+        android:fontFamily="@font/spartanmedium"
+        android:text="@string/seconds"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/spartanmedium"
+        android:text="@string/score"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/slider" />
+
+    <TextView
+        android:id="@+id/highscoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/spartanlight"
+        android:text="@string/beginningscore"
+        android:textSize="90sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="216dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/switch_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/switch_label"
+        app:layout_constraintVertical_bias="1.0"
+
+
+        app:thumbTint="@color/white"
+        app:trackTint="@color/primaryColor" />
+
+    <TextView
+        android:id="@+id/switch_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="164dp"
+        android:fontFamily="@font/spartanextralight"
+        android:text="@string/timerlabel"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/switch1"
+        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscoreLabel" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/begin_button"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:fontFamily="@font/spartanlight"
+        android:text="@string/begin"
+
+
+        android:textColor="@color/white"
+        app:cornerRadius="40dp"
+        app:icon="@drawable/ic_timericon"
+        app:iconSize="20dp"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_label"
+        app:strokeColor="@color/primaryColor"
+        app:strokeWidth="1dp" />
+    <!--    Styling Buttons in my particular way: https://stackoverflow.com/questions/37395697/material-design-button-with-border-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
