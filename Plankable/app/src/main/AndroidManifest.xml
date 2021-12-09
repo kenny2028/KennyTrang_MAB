@@ -13,6 +13,7 @@
             android:name=".gameActivity"
             android:exported="true"
             android:label="FeedbackActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/plankableNoActionBar" />
         <activity
             android:name=".MainActivity"

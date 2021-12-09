@@ -1,5 +1,6 @@
 package com.example.plankable
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 
 class MainActivity : AppCompatActivity() {
 
+    var highscoreSave = ""
 
     var timerval: Double = 0.00
     lateinit var layoutRoot : ConstraintLayout
@@ -22,6 +24,15 @@ class MainActivity : AppCompatActivity() {
     lateinit var switchLabel : TextView
     private val REQUEST_CODE = 1
     lateinit var beginbutton : Button
+    private var exportTime = ""
+    private var showTimer = true
+    lateinit var scoreLabel : TextView
+    lateinit var highscoreLabel : TextView
+    private var highScoreTracker = 0
+
+    private var position = 0
+
+    private var highScore =  Array(20) { 0 }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,17 +45,22 @@ class MainActivity : AppCompatActivity() {
         val switchLabel = findViewById<TextView>(R.id.switch_label)
         val beginbutton = findViewById<Button>(R.id.begin_button)
 
+        highscoreLabel = findViewById(R.id.highscoreLabel)
 
         slider.addOnChangeListener { slider, value, fromUser ->
             timerlabel.text = secondconvert(value.toInt())
             timerval = value.toDouble()
+            Log.i("Check VAL", highScore[(value.toInt()/30)].toString())
+            highscoreLabel.text = highScore[(value.toInt()/30)].toString()
         }
 
         switch.setOnCheckedChangeListener { buttonView, isChecked ->
             if (switch.isChecked) {
                 switchLabel.text = "Show Timer In-Game(OFF)"
+                showTimer = false
             } else {
                 switchLabel.text = "Show Timer In-Game(ON)"
+                showTimer = true
             }
         }
 
@@ -60,11 +76,19 @@ class MainActivity : AppCompatActivity() {
             }
 
 
-//            PASS THROUGH GATE
-//            Create Intent
+//          PASS THROUGH GATE
+//          Create Intent
             val intent = Intent(this, gameActivity::class.java)
-            Log.i("test", slider.value.toString())
-            intent.putExtra("timerData", slider.value.toInt())
+
+            exportTime = secondconvert(slider.value.toInt())
+            Log.i("test", exportTime)
+            intent.putExtra("timerData", exportTime)
+            intent.putExtra("timerSeconds",slider.value.toInt())
+            intent.putExtra("showTimer",showTimer)
+
+            position = (slider.value.toInt()/30)
+            intent.putExtra("highScore",highScore[position])
+
             startActivityForResult(intent,REQUEST_CODE)
         }
 
@@ -110,6 +134,33 @@ class MainActivity : AppCompatActivity() {
 //            return new string format
 
         return finalString
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if((requestCode == REQUEST_CODE) && (resultCode == Activity.RESULT_OK)) {
+            if (data != null) {
+                highScoreTracker = data.getIntExtra("newHighScore",0)
+                highscoreLabel.text = highScoreTracker.toString()
+            }
+            highScore[position] = highScoreTracker
+        }
+    }
+
+    fun updateUI () {
+        highscoreLabel.text = highscoreSave
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString("savehighscore", highscoreSave)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        highscoreSave = savedInstanceState.getString("savehighscore", "")
+        updateUI()
     }
 
 

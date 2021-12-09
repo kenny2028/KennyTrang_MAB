@@ -8,7 +8,12 @@
     <string name ="timerlabel">Show Timer In-Game(ON)</string>
     <string name ="timerlabel2">Show Timer In-Game(OFF)</string>
     <string name ="begin">Begin</string>
-
+    <string name="beginningtime">0:00</string>
+    <string name= "currentscore">Current Score</string>
+    <string name="beginGame">Press Start to Begin Game!</string>
+    <string name="start">Start</string>
+    <string name="round">Round 1</string>
+    <string name="ok">Ok</string>
     <array name="slidervalues">
         <item>0</item>
         <item>30</item>

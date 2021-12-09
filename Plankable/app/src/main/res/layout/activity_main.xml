@@ -87,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/slider" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/highscoreLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/spartanlight"
@@ -122,7 +122,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/switch1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/highscoreLabel" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/begin_button"
